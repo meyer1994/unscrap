@@ -1,36 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style type="text/css">
-        html, body {
-            margin: 0;
-            height: 100%;
-        }
-    </style>
+  <style type="text/css">
+    /* Makes the image cover the whole screen */
+    html, body {
+      margin: 0;
+      height: 100%;
+    }
+  </style>
 </head>
 
 <body>
-<script type="text/javascript">
-const BASE = 'http://localhost:8000'
-const URL = 'https://fastapi.tiangolo.com'
+  <script type="text/javascript">
+    const BASE = 'http://localhost:8000/image'  // Server URL
+    const SITE = 'https://www.wikipedia.org/'  // Website to navigate
 
-window.onload = () => {
-    const body = document.querySelector('body')
-    const { clientWidth, clientHeight } = body
-    const url = `${BASE}/?id=123&height=${clientHeight}&width=${clientWidth}&url=${URL}`
-    document.querySelector('img').src = url
+    const ID = Math.random().toString().substring(2)
 
-    body.onclick = ({ offsetX, offsetY }) => {
-        const { clientWidth, clientHeight } = body
-        const url = `${BASE}/?id=123&height=${clientHeight}&width=${clientWidth}&x=${offsetX}&y=${offsetY}&url=${URL}`
-        document.querySelector('img').src = url
+    const url = params => {
+      const u = new URL(BASE)
+      const entries = Object.entries(params)
+      for (const [key, val] of entries) {
+        u.searchParams.append(key, val)
+      }
+      u.searchParams.set('url', SITE)
+      return u
     }
-}
-</script>
 
-<img src="">
+    window.onload = () => {
+      const body = document.querySelector('body')
+      const params = {
+        id: ID,
+        height: body.clientHeight,
+        width: body.clientWidth,
+        url: SITE,
+      }
+      document.querySelector('img').src = url(params)
+
+      body.onclick = ({ offsetX, offsetY }) => {
+        const params = {
+          id: ID,
+          height: body.clientHeight,
+          width: body.clientWidth,
+          x: offsetX,
+          y: offsetY,
+          url: SITE,
+        }
+        document.querySelector('img').src = url(params)
+      }
+    }
+  </script>
+
+  <img src="">
 </body>
 </html>

@@ -3,7 +3,7 @@ from dataclasses import dataclass
 
 from fastapi import FastAPI, Depends
 from pydantic import conint
-from starlette.responses import StreamingResponse
+from starlette.responses import StreamingResponse, HTMLResponse
 from playwright.async_api import async_playwright
 
 app = FastAPI()
@@ -61,7 +61,7 @@ class Ctx:
 SESSIONS = {}
 
 
-@app.get('/')
+@app.get('/image')
 async def get(ctx: Ctx = Depends(Ctx)):
     if ctx.id in SESSIONS:
         tab = SESSIONS[ctx.id]
@@ -78,3 +78,9 @@ async def get(ctx: Ctx = Depends(Ctx)):
     buff = await tab.screenshot(type='jpeg', quality=50)
     buff = BytesIO(buff)
     return StreamingResponse(buff, media_type='image/jpeg')
+
+
+@app.get('/', response_class=HTMLResponse)
+async def index() -> str:
+    with open('index.html', 'rt') as f:
+        return f.read()
