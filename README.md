@@ -51,10 +51,12 @@ $ uvicorn app:app --reload
 ```
 
 Then access `localhost:8000/` on your browser and delight yourself with the
-_future of the web_.
+_future of the web_. The examples uses [Wikipedia][6]. So you should expect to
+see its front page.
 
 [1]: https://reddit.com/
 [2]: https://web.archive.org/web/20220106000653/https://old.reddit.com/r/assholedesign/comments/anila7/facebook_splitting_the_word_sponsored_to_bypass/
 [3]: https://fastapi.tiangolo.com/
 [4]: https://www.uvicorn.org/
 [5]: https://playwright.dev/
+[6]: https://www.wikipedia.org/
