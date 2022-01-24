@@ -1,5 +1,5 @@
 anyio==3.5.0
-asgiref==3.4.1
+asgiref==3.5.0
 click==8.0.3
 fastapi==0.70.1
 greenlet==1.1.2
