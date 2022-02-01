@@ -5,7 +5,7 @@ fastapi==0.70.1
 greenlet==1.1.2
 h11==0.13.0
 idna==3.3
-playwright==1.18.1
+playwright==1.18.2
 pydantic==1.9.0
 pyee==9.0.3
 sniffio==1.2.0
