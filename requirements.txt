@@ -1,7 +1,7 @@
 anyio==3.5.0
 asgiref==3.5.0
 click==8.0.3
-fastapi==0.74.0
+fastapi==0.74.1
 greenlet==1.1.2
 h11==0.13.0
 idna==3.3
