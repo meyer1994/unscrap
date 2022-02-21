@@ -12,4 +12,4 @@ sniffio==1.2.0
 starlette==0.16.0
 typing_extensions==4.1.1
 uvicorn==0.17.5
-websockets==10.1
+websockets==10.2
