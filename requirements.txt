@@ -9,7 +9,7 @@ playwright==1.22.0
 pydantic==1.9.1
 pyee==9.0.4
 sniffio==1.2.0
-starlette==0.20.3
+starlette==0.20.4
 typing_extensions==4.2.0
 uvicorn==0.18.2
 websockets==10.3
